@@ -1,0 +1,21 @@
+{% load static %}
+
+<nav class="navbar">
+    <ul>
+        <li><a href="{% url 'home' %}">Home</a></li>
+        <li><a href="{% url 'about' %}">About</a></li>
+        <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+    </ul>
+
+    {% if user.is_authenticated == False %}
+    <div class="nav-buttons">
+        <a class="button button_r_12" href="{% url 'login' %} ">Login</a>
+        <a class="button button_r_12" href="{% url 'signup' %}">Signup</a>
+    </div>
+    {% else %}
+    <form action="{% url 'logout' %}" method="post">
+        {% csrf_token %}
+        <button class="button button_r_12" type="submit">Logout</button>
+    </form>
+    {% endif %}
+</nav>

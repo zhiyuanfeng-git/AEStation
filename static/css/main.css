@@ -1,0 +1,51 @@
+.button {
+    background-color: #04AA6D; /* Green */
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    margin-right: 5%;
+}
+
+#button {
+    padding: .5rem 1rem;
+    border: 1px solid #495E57;
+    background-color:#495E57;;
+    border-radius: 5px;
+    width: 80%;
+    font-size: 1.25rem;
+    display: block;
+    color: #fff;
+    line-height: 25px;
+}
+
+.button_r_12 {
+    border-radius: 25px;
+}
+
+.button:hover {
+    background-color: #0dce84; /* Green */
+    color: white;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-buttons {
+    display: flex;
+    list-style-type: none;
+    padding: 0;
+}
+
+label.required::after {
+    content: ' *';
+    color: red;
+}
