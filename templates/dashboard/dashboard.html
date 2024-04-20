@@ -1,12 +1,42 @@
 {% extends 'base.html' %}
+{% load static %}
+
+{% block header %}
+{% endblock %}
+
+{% block footer %}
+    {% include 'partials/_dash_footer.html' %}
+{% endblock %}
 
 {% block content %}
 
 <section>
 
-    <article>
-        <p>dashboard</p>
-        <a href="{% url 'home' %}">Return home</a>
+    <article class="sidebar-article">
+        <div class="sidebar">
+            <ul>
+                <li><a href="{% url 'home' %}">Home</a></li>
+                <li><a href="{% url 'event' %}">Event</a></li>
+                <li><a href="{% url 'fans' %}">Fans</a></li>
+            </ul>
+            <ul class="bottom-links">
+                <li><a href="{% url 'profile' %}">Profile</a></li>
+                <form action="{% url 'logout' %}" method="post">
+                    {% csrf_token %}
+                    <li></li><button class="button button_r_12" type="submit">Logout</button></li>
+                </form>
+            </ul>
+        </div>
+    </article>
+
+</section>
+
+<section>
+
+    <article class="sidebar-article">
+        <div class="body-text">
+            {% block dashcontent%} {% endblock %}
+        </div>
     </article>
 
 </section>
