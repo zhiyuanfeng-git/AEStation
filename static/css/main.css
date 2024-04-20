@@ -49,3 +49,68 @@ label.required::after {
     content: ' *';
     color: red;
 }
+
+.sidebar {
+    height: 100%;
+    width: 150px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    padding-top: 40px;
+    background-color: lightblue;
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar div {
+    padding: 8px;
+    font-size: 24px;
+    display: block;
+}
+
+.sidebar ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.sidebar li {
+    padding: 8px;
+    font-size: 24px;
+}
+
+.body-text {
+    margin-left: 150px;
+    font-size: 18px;
+}
+
+.sidebar-article {
+    border: 1px solid #EDEFEE;
+    padding-left: 25%;
+}
+
+.bottom-links {
+    position: relative;
+    top: calc(60% - 40px); 
+}
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    padding: 10px;
+    background-color: #f2f2f2;
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 50px;
+    height: auto;
+    margin-right: 10px;
+}
+
+.copyright {
+    font-size: 14px;
+}
+
