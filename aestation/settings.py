@@ -157,3 +157,16 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 AUTH_USER_MODEL = 'accounts.UserModel'
 
 LOGIN_REDIRECT_URL = 'dashboard'
+
+# email stuff
+email_server_type = wenv.EMAIL_SERVER_TYPE
+if email_server_type == 'gmail':
+    EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_USE_TLS = True
+    EMAIL_USE_SSL = False
+    EMAIL_PORT = wenv.EMAIL_PORT
+    EMAIL_HOST_USER = wenv.EMAIL_HOST_USER
+    EMAIL_HOST_PASSWORD = wenv.EMAIL_HOST_PASSWORD
+else:
+    EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"

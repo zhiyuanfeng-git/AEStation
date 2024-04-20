@@ -31,3 +31,8 @@ if DB_ENGINE_NAME == 'mysql':
     if not DB_PORT:
         DB_PORT = '3306'
 
+EMAIL_SERVER_TYPE = os.getenv('EMAIL_SERVER_TYPE')
+EMAIL_PORT = os.getenv('EMAIL_PORT')
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD')
+
