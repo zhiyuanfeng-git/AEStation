@@ -132,3 +132,19 @@ label.required::after {
     background-color: #131816;
     color: white;
 }
+
+.form-inline {
+    display: flex;
+    align-items: center;
+}
+
+.form-inline button {
+    margin-right: 10px;
+    margin-left: 2%;
+}
+
+.form-inline input[type="text"] {
+    width: 150px; 
+    max-width: 100%;
+    margin-left: 5%;
+}
