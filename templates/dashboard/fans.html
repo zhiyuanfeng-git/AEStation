@@ -10,7 +10,7 @@
     <h3>Fans Count</h3>
     <div class="fans-count-container">
         <div class="fans-count-item">
-            <span>Total Fans</span>
+            <span><strong>Total Fans</strong></span>
             {% if fans_count %}
                 <span>{{fans_count}}</span>
             {% else %}
@@ -19,7 +19,7 @@
         </div>
         
         <div class="fans-count-item">
-            <span>New Fans (Last Week)</span>
+            <span><strong>New Fans (Last Week)</strong></span>
             {% if last_week_fans_count %}
                 <span>{{last_week_fans_count}}</span>
             {% else %}
@@ -34,10 +34,10 @@
     <h3>Fans CSV</h3>
     <div class="csv-btns">
         <form action="{% url 'upload-csv' %}">
-            <button id="upload-csv-btn" class="upload-csv-btn">Upload CSV</button>
+            <button id="upload-csv-btn" class="upload-csv-btn"><strong>Upload CSV</strong></button>
         </form>
         <form action ="{% url 'download-csv' %}">
-            <button id = "download-csv-btn" class="upload-csv-btn">Download CSV</button>
+            <button id = "download-csv-btn" class="upload-csv-btn"><strong>Download CSV</strong></button>
         </form>
     </div>
 </article>
