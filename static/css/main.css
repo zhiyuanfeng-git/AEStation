@@ -57,7 +57,7 @@ label.required::after {
     left: 0;
     top: 0;
     padding-top: 40px;
-    background-color: lightblue;
+    background-color: #5d5c71;
     display: flex;
     flex-direction: column;
 }
@@ -114,3 +114,144 @@ label.required::after {
     font-size: 14px;
 }
 
+.button2 {
+    background-color: #84968f73;
+    border: none;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    margin-right: 5%;
+}
+
+.button2:hover {
+    background-color: #131816;
+    color: white;
+}
+
+.form-inline {
+    display: flex;
+    align-items: center;
+}
+
+.form-inline button {
+    margin-right: 10px;
+    margin-left: 2%;
+}
+
+.form-inline input[type="text"] {
+    width: 150px; 
+    max-width: 100%;
+    margin-left: 5%;
+}
+
+.fans-count-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 50%;
+    margin-top: 10px;
+}
+
+.fans-count-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid black;
+    padding: 15px;
+}
+
+.fans-count-item span {
+    margin-top: 5px;
+}
+
+.csv-btns {
+    display: flex;
+}
+
+.upload-csv-btn {
+    padding: 10px 20px;
+    margin-right: 10px;
+    border: 5px solid rgb(16, 164, 164);
+    cursor: pointer;
+    transition: border-color 0.3s ease-in-out;
+}
+
+.upload-csv-btn:hover {
+    border-color: rgb(131, 170, 4);
+}
+
+.upload-csv-btn:active {
+    border-color: #b21b1b;
+}
+
+.drop-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    padding: 20px;
+    border-radius: 10px;
+    border: 2px dashed #555;
+    color: #444;
+    cursor: pointer;
+}
+
+.drop-container:hover {
+    background: #eee;
+    border-color: #111;
+}
+
+.drop-container:hover .drop-title {
+    color: #222;
+}
+
+.drop-title {
+    color: #444;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+input[type="file"] {
+    display: none;
+}
+
+.choose-file-btn {
+    margin-right: 20px;
+    border: none;
+    background: #3c66c3;
+    padding: 10px 20px;
+    border-radius: 10px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar {
+    flex: 1;
+    margin-right: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+.center-align {
+    text-align: left;
+}

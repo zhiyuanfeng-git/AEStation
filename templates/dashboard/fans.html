@@ -3,5 +3,92 @@
 
 
 {% block dashcontent%} 
-<p>Fans page</p>
+<h2>Fans page</h2>
+
+<!--Fans Count-->
+<article>
+    <h3>Fans Count</h3>
+    <div class="fans-count-container">
+        <div class="fans-count-item">
+            <span>Total Fans</span>
+            {% if fans_count %}
+                <span>{{fans_count}}</span>
+            {% else %}
+                <span>0</span>
+            {% endif %}
+        </div>
+        
+        <div class="fans-count-item">
+            <span>New Fans (Last Week)</span>
+            {% if last_week_fans_count %}
+                <span>{{last_week_fans_count}}</span>
+            {% else %}
+                <span>0</span>
+            {% endif %}
+        </div>
+    </div>
+</article>
+
+<!--Fans CSV-->
+<article>
+    <h3>Fans CSV</h3>
+    <div class="csv-btns">
+        <form action="{% url 'upload-csv' %}">
+            <button id="upload-csv-btn" class="upload-csv-btn">Upload CSV</button>
+        </form>
+        <form action ="{% url 'download-csv' %}">
+            <button id = "download-csv-btn" class="upload-csv-btn">Download CSV</button>
+        </form>
+    </div>
+</article>
+
+<!--Fans Search-->
+<article>
+    <h3>Fans Search</h3>
+    <div class="search-container">
+        <form id ="search-form" >
+            <input class="search-bar" type="search" placeholder="Search fans" aria-label="Search" name="search" >
+            <button class="upload-csv-btn" type="submit">Search</button>
+        </form>
+    </div>
+    <div>
+        {% if search_result %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Email</th>
+                        <th>First Name</th>
+                        <th>Middle Name</th>
+                        <th>Last Name</th>
+                        <th>Date Joined</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for result in search_result %}
+                        <tr>
+                            <td>{{ result.email }}</td>
+                            <td class="center-align">{{ result.first_name }}</td>
+                            <td class="center-align">{{ result.middle_name }}</td>
+                            <td class="center-align">{{ result.last_name }}</td>
+                            <td class="center-align">{{ result.date_joined }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No results found.</p>
+        {% endif %}
+    </div>
+</article>
+
+<script>
+    document.getElementById('search-form').addEventListener('submit', function(event) {
+        var searchInput = document.querySelector('.search-bar');
+        if (searchInput.value.trim() === '') {
+            event.preventDefault();
+            alert('Please enter a search term.');
+        }
+    });
+</script>
+
 {% endblock %}

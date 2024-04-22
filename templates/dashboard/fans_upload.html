@@ -1,0 +1,50 @@
+{% extends 'dashboard/dashboard.html' %}
+{% load static %}
+
+
+{% block dashcontent%} 
+<form action="." method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <label for="csv" class="drop-container">
+        <span class="drop-title">Drop files here</span>
+        or    
+        <input type="file" id="csv" name="csv" required accept=".csv" size="120" style="display: none;">
+        <button type="button" onclick="document.getElementById('csv').click()" class="choose-file-btn">Choose File</button>
+        <span id="file-name" class="file-name">No file chosen</span>
+    </label>
+    <div>
+        <script>
+            let errLabel = null
+            let successLabel = null
+        </script>
+        {% if err_msg %}
+            <p id="err_msg">{{err_msg}}</p>
+            <script>
+                errLabel = 1
+            </script>
+        {% elif success_msg %}
+            <p id="success_msg" style="white-space: pre-line;">{{success_msg}}</p>
+            <script>
+                successLabel = 1
+            </script>
+        {% endif %}
+    </div>
+    <div>
+        <button class="button button_r_12" type="submit">Upload</button>
+    </div>
+</form>
+
+<script>
+    document.getElementById('csv').addEventListener('change', function() {
+    var fileName = this.files[0].name;
+    document.getElementById('file-name').textContent = fileName;
+    if (errLabel){
+        document.getElementById('err_msg').innerHTML  = "";
+    }
+    if (successLabel){
+        document.getElementById('success_msg').innerHTML = "";
+    }
+    
+});
+</script>
+{% endblock %}

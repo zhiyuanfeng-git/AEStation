@@ -2,5 +2,39 @@
 {% load static %}
 
 {% block dashcontent%} 
-<p>Profile page</p>
+
+    <h2>Profile</h2>
+
+    <p>Email: {{ user.email }}</p>
+    {% if user.first_name %}
+        <form method="post" class="form-inline" action="{% url 'profile' %}">
+            {% csrf_token %}
+            <p> First Name: {{ user.first_name}} </p>
+            <input type="text" name="first_name" placeholder="First Name">
+            <button type="submit">Change</button>
+        </form>
+    {% else %}
+        <p> Please update your first name </p>
+        <form method="post" action="{% url 'profile' %}">
+            {% csrf_token %}
+            <input type="text" name="first_name" placeholder="First Name">
+            <button type="submit">Update first Name</button>
+        </form>
+    {% endif %}
+    {% if user.last_name %}
+        <form method="post"  class="form-inline" action="{% url 'profile' %}">
+            {% csrf_token %}
+            <p> Last Name: {{ user.last_name}} </p>
+            <input type="text" name="last_name" placeholder="Last Name">
+            <button type="submit">Change</button>
+        </form>
+    {% else %}
+        <p> Please update your last name </p>
+        <form method="post" action="{% url 'profile' %}">
+            {% csrf_token %}
+            <input type="text" name="last_name" placeholder="Last Name">
+            <button type="submit">Update last Name</button>
+        </form>
+    {% endif %}
+
 {% endblock %}

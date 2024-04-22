@@ -23,7 +23,7 @@
                 <li><a href="{% url 'profile' %}">Profile</a></li>
                 <form action="{% url 'logout' %}" method="post">
                     {% csrf_token %}
-                    <li></li><button class="button button_r_12" type="submit">Logout</button></li>
+                    <li></li><button class="button2 button_r_12" type="submit">Logout</button></li>
                 </form>
             </ul>
         </div>
@@ -35,6 +35,11 @@
 
     <article class="sidebar-article">
         <div class="body-text">
+            {% if user.first_name %}
+                <h2>Welcome, {{user.first_name}} {{user.last_name}}</h2>
+            {% else %}
+                <h2>Welcome, {{ user.email }}</h2>
+            {% endif %}
             {% block dashcontent%} {% endblock %}
         </div>
     </article>
