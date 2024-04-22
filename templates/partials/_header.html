@@ -2,10 +2,13 @@
 
 <nav class="navbar">
     <ul>
-        <li><a href="{% url 'home' %}">Home</a></li>
-        <li><a href="{% url 'about' %}">About</a></li>
-        <li><a href="{% url 'event' %}">Dashboard</a></li>
+        <li><a href="{% url 'home' %}" class="{% if request.path == '/' %}active{% endif %}">Home</a></li>
+        <li><a href="{% url 'about' %}" class="{% if request.path == '/about/' %}active{% endif %}">About</a></li>
+        <li><a href="{% url 'event' %}" class="{% if request.path == '/event/' %}active{% endif %}">Dashboard</a></li>
     </ul>
+
+    <script>let highlight_query = '.navbar a.active'</script>
+    <script src="{%static 'js/highlight.js' %}"></script>
 
     {% if user.is_authenticated == False %}
     <div class="nav-buttons">
