@@ -15,18 +15,20 @@
     <article class="sidebar-article">
         <div class="sidebar">
             <ul>
-                <li><a href="{% url 'home' %}">Home</a></li>
-                <li><a href="{% url 'event' %}">Event</a></li>
-                <li><a href="{% url 'fans' %}">Fans</a></li>
+                <li><a href="{% url 'home' %}" class="{% if request.path == '/' %}active{% endif %}">Home</a></li>
+                <li><a href="{% url 'event' %}" class="{% if request.path == '/event/' %}active{% endif %}">Event</a></li>
+                <li><a href="{% url 'fans' %}" class="{% if request.path == '/fans/' %}active{% endif %}">Fans</a></li>
             </ul>
             <ul class="bottom-links">
-                <li><a href="{% url 'profile' %}">Profile</a></li>
+                <li><a href="{% url 'profile' %}" class="{% if request.path == '/profile/' %}active{% endif %}">Profile</a></li>
                 <form action="{% url 'logout' %}" method="post">
                     {% csrf_token %}
                     <li></li><button class="button2 button_r_12" type="submit">Logout</button></li>
                 </form>
             </ul>
         </div>
+        <script>let highlight_query = '.sidebar a.active'</script>
+        <script src="{%static 'js/highlight.js' %}"></script>
     </article>
 
 </section>
