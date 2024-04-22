@@ -35,7 +35,11 @@
 
     <article class="sidebar-article">
         <div class="body-text">
-            <h2>Welcome, {{ user.email }}</h2>
+            {% if user.first_name %}
+                <h2>Welcome, {{user.first_name}} {{user.last_name}}</h2>
+            {% else %}
+                <h2>Welcome, {{ user.email }}</h2>
+            {% endif %}
             {% block dashcontent%} {% endblock %}
         </div>
     </article>

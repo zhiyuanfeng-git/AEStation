@@ -40,6 +40,3 @@ class ProfileView(LoginRequiredMixin, TemplateView):
 
 class EventView(LoginRequiredMixin, TemplateView):
     template_name = 'dashboard/event.html'
-
-class FansView(LoginRequiredMixin, TemplateView):
-    template_name = 'dashboard/fans.html'
