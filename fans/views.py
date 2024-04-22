@@ -30,12 +30,24 @@ class FansView(LoginRequiredMixin, TemplateView):
         last_time = timezone.now() - timedelta(days=days)
         last_count = user.owners_fans.filter(date_joined__gte=last_time).count()
         return last_count
+    
+    def _handle_search(self, user, content):
+        FansModel = user.owners_fans
+        result = FansModel.filter(email__contains=content)
+        print(f"---,result = {result}")
+        return result
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        user = self.request.user
+        request = self.request
+        user = request.user
         context['fans_count'] = self._get_fans_count(user)
         context['last_week_fans_count'] = self._get_last_fans_count(user, 7)
+
+        print(f"---,request={request}")
+        search_content = request.GET.get('search')
+        if search_content:
+            context['search_result'] = self._handle_search(user, search_content)
         return context
     
 class FansUploadView(LoginRequiredMixin, TemplateView):

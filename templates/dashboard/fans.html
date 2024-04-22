@@ -45,6 +45,50 @@
 <!--Fans Search-->
 <article>
     <h3>Fans Search</h3>
+    <div class="search-container">
+        <form id ="search-form" >
+            <input class="search-bar" type="search" placeholder="Search fans" aria-label="Search" name="search" >
+            <button class="upload-csv-btn" type="submit">Search</button>
+        </form>
+    </div>
+    <div>
+        {% if search_result %}
+            <table>
+                <thead>
+                    <tr>
+                        <th>Email</th>
+                        <th>First Name</th>
+                        <th>Middle Name</th>
+                        <th>Last Name</th>
+                        <th>Date Joined</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for result in search_result %}
+                        <tr>
+                            <td>{{ result.email }}</td>
+                            <td class="center-align">{{ result.first_name }}</td>
+                            <td class="center-align">{{ result.middle_name }}</td>
+                            <td class="center-align">{{ result.last_name }}</td>
+                            <td class="center-align">{{ result.date_joined }}</td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        {% else %}
+            <p>No results found.</p>
+        {% endif %}
+    </div>
 </article>
+
+<script>
+    document.getElementById('search-form').addEventListener('submit', function(event) {
+        var searchInput = document.querySelector('.search-bar');
+        if (searchInput.value.trim() === '') {
+            event.preventDefault();
+            alert('Please enter a search term.');
+        }
+    });
+</script>
 
 {% endblock %}

@@ -231,3 +231,27 @@ input[type="file"] {
     color: #fff;
     cursor: pointer;
 }
+
+.search-container {
+    display: flex;
+    align-items: center;
+}
+
+.search-bar {
+    flex: 1;
+    margin-right: 10px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 8px;
+    text-align: left;
+}
+
+.center-align {
+    text-align: left;
+}
