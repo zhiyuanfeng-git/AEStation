@@ -1,0 +1,11 @@
+{% extends 'dashboard/dashboard.html' %}
+{% load static %}
+
+{% block dashcontent%} 
+    <h3>Create Event</h3>
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="button button_r_12" type="submit">Create Event</button>
+    </form>
+{% endblock %}
