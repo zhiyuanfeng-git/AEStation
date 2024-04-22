@@ -3,5 +3,27 @@
 
 
 {% block dashcontent%} 
-<p>Event page</p>
+    <h2>Event page</h2>
+    <p>Create events and display all created events.</p>
+    <div class="event-container">
+        <div class="create-event-box">
+            <form action ="{% url 'create-event' %}">
+                <button class="create-event-btn">Create Event</button>
+            </form>
+        </div>
+
+        {% for event in created_event %}
+            <div class="created-events">
+                <div class="event-item">
+                    <a href="{% url 'event-detail' event.id %}" class="event-link1">{{event.title}}</a>
+                </div>
+            </div>
+        {% empty %}
+            <div class="no-events-box">
+                <div class="event-item">
+                    <p>No Events created yet.</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
 {% endblock %}

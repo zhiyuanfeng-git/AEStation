@@ -44,7 +44,6 @@ class FansView(LoginRequiredMixin, TemplateView):
         context['fans_count'] = self._get_fans_count(user)
         context['last_week_fans_count'] = self._get_last_fans_count(user, 7)
 
-        print(f"---,request={request}")
         search_content = request.GET.get('search')
         if search_content:
             context['search_result'] = self._handle_search(user, search_content)

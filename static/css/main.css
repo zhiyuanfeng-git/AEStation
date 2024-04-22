@@ -255,3 +255,71 @@ th, td {
 .center-align {
     text-align: left;
 }
+
+.event-container {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.create-event-box {
+    width: 300px;
+    height: 100px;
+    border: 2px solid #096a0e;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(207, 45, 45, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.no-events-box {
+    width: 300px; 
+    height: 100px;
+    border: 2px solid #536981;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(58, 22, 57, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.created-events {
+    width: 300px; 
+    height: 100px;
+    border: 2px solid #536981;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(231, 163, 163, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.no-events-box {
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.create-event-btn {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.create-event-btn:hover {
+    background-color: #0fc97f;
+    color: white;
+}
+
+.event-item {
+    font-weight: bold;
+    font-size: 26px;
+}

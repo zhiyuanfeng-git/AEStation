@@ -1,0 +1,19 @@
+{% extends 'dashboard/dashboard.html' %}
+{% load static %}
+
+{% block dashcontent%} 
+    <h3>Event Detail</h3>
+    <h1>{{ event.title }}</h1>
+    <p><strong>Description:</strong> {{ event.description }}</p>
+    <p><strong>Start Date:</strong> {{ event.start_date }}</p>
+    <p><strong>End Date:</strong> {{ event.end_date }}</p>
+    <p><strong>Event URL:</strong> {{ event.event_url }}</p>
+    <h2>Subscribers</h2>
+    <ul>
+        {% for subscriber in event.subscribers.all %}
+            <li>{{ subscriber.first_name }} {{ subscriber.last_name }} - {{ subscriber.email }}</li>
+        {% empty %}
+            <li>No subscribers yet.</li>
+        {% endfor %}
+    </ul>
+{% endblock %}

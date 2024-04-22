@@ -36,7 +36,3 @@ class ProfileView(LoginRequiredMixin, TemplateView):
         self._update_name(user, first_name, last_name)
 
         return redirect('profile')
-
-
-class EventView(LoginRequiredMixin, TemplateView):
-    template_name = 'dashboard/event.html'
