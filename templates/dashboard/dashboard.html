@@ -16,7 +16,7 @@
         <div class="sidebar">
             <ul>
                 <li><a href="{% url 'home' %}" class="{% if request.path == '/' %}active{% endif %}">Home</a></li>
-                <li><a href="{% url 'event' %}" class="{% if request.path == '/event/' %}active{% endif %}">Event</a></li>
+                <li><a href="{% url 'event' %}" class="{% if request.path == '/events/' %}active{% endif %}">Event</a></li>
                 <li><a href="{% url 'fans' %}" class="{% if request.path == '/fans/' %}active{% endif %}">Fans</a></li>
             </ul>
             <ul class="bottom-links">
